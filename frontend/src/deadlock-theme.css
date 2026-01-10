@@ -1,0 +1,232 @@
+:root {
+  --dl-bg:        #d7c7a3;
+  --dl-panel:     #c6b792;
+  --dl-border:    #3a2e1c;
+  --dl-text:      #1b130b;
+  --dl-accent:    #8b6f3d;
+
+  --dl-btn-bg:    #3a2e1c;
+  --dl-btn-hover: #4a3b25;
+  --dl-btn-text:  #f5e7c6;
+}
+
+/* Global background */
+body {
+  background: var(--dl-bg);
+  color: var(--dl-text);
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Deadlock panels */
+.dl-panel {
+  background: rgba(30, 26, 22, 0.86);
+  border: 2px solid #493d34;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  color: #e6d7b8;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Deadlock button */
+.dl-btn {
+  background: var(--dl-btn-bg);
+  color: var(--dl-btn-text);
+  border: 2px solid var(--dl-border);
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: 0.15s;
+}
+
+.dl-btn:hover {
+  background: var(--dl-btn-hover);
+}
+
+/* Inputs */
+.dl-input {
+  padding: 8px 10px;
+  background: var(--dl-panel);
+  border: 2px solid var(--dl-border);
+  color: var(--dl-text);
+  width: 200px;
+  border-radius: 4px;
+}
+
+/* Entire page layout */
+.game-container {
+  display: grid;
+  grid-template-columns: 220px 1fr 320px;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+/* Panels */
+.left-panel, .center-panel, .right-panel {
+  overflow: auto;
+}
+
+/* Center column */
+.center-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fix canvas size + centering */
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+canvas {
+  border: 3px solid var(--dl-border);
+  background: #fff;
+  max-width: 100%;
+}
+
+/* Tools section */
+.canvas-tools {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.color-dot {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--dl-border);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Character portrait bottom right */
+.character-image {
+  width: 250px;
+  display: block;
+  margin: 0;
+  border: 3px solid var(--dl-border);
+}
+
+
+/* Entire background area */
+.lobby-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+/* Centered panel */
+.lobby-panel {
+  background: rgba(30, 26, 22, 0.86);
+  border: 2px solid #493d34;
+  padding: 45px;
+  width: 420px;
+  border-radius: 12px;
+  text-align: center;
+  color: #e6d7b8;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+}
+
+/* Title */
+.lobby-title {
+  font-family: "Times New Roman", monospace;
+  font-size: 52px;
+  font-weight: 900;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+/* Button group */
+.lobby-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Buttons */
+.lobby-btn {
+  padding: 18px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid #493d34;
+  background: #2d241d;
+  color: #e6d7b8;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.lobby-btn:hover {
+  background: #3b3129;
+  transform: scale(1.04);
+}
+
+/* Back button */
+.back-btn {
+  background: none;
+  border: none;
+  color: #e6d7b8;
+  font-size: 30px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  text-align: left;
+  display: block;
+}
+
+.back-btn:hover {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+/* GLOBAL Deadlock UI theme */
+.deadlock-panel {
+  background: rgba(30, 26, 22, 0.86);
+  border: 2px solid #493d34;
+  padding: 45px;
+  width: 420px;
+  border-radius: 12px;
+  text-align: center;
+  color: #e6d7b8;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+}
+
+.character-image-box {
+  background: #e6d7b8;  
+  border: 3px solid #493d34;
+  width: fit-content;
+  padding: 0;
+  margin: 20px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+}
+
+.character-image {
+  border: none
+  
+}
+
+.left-panel-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
