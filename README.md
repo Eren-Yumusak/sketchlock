@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+## Sketchlock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Multiplayer drawing and guessing game with Deadlock-inspired characters. One player draws a randomly selected character while the others race to guess the name before the timer runs out. Rounds, scoring, and a lobby system make it suitable for casual play with friends.
 
-## Available Scripts
+### Features
 
-In the project directory, you can run:
+- Real-time drawing canvas with brush, eraser, bucket fill, and undo.
+- Socket.io multiplayer lobby with:
+  - Create / join by room code.
+  - Browse public games.
+- Configurable number of rounds per game.
+- Time-based scoring for guessers and bonus points for the drawer when everyone guesses correctly.
+- Scoreboard and automatic winner announcement at the end of the match.
+- Character roster loaded from the backend (backend/characters.js), including support for multi-word names and hint patterns that reflect word spacing.
 
-### `npm start`
+### Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend: React (Create React App), socket.io-client.
+- Backend: Node.js, Express, Socket.io.
+- Styling: Custom Deadlock-themed CSS.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Gameplay
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. From the lobby, choose:
+	- Create Game: pick a name, visibility (public or private), your display name, and number of rounds.
+	- Join via Code: enter a room code shared by a friend.
+	- Browse Games: view and join public rooms.
+2. Once everyone has joined, the host starts the game.
+3. Each round:
+	- One player is the drawer and sees the character name and reference image.
+	- Other players use the chat input to submit guesses.
+	- Correct guesses award points based on remaining time.
+	- If all guessers are correct, the drawer receives bonus points.
+4. After the configured number of rounds, the game ends and the player with the highest score is declared the winner.
