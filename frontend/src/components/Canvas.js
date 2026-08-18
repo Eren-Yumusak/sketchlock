@@ -21,9 +21,6 @@ export default function Canvas({ roomId, drawerId }) {
 
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = color;
-    ctx.lineWidth = size;
-
     ctxRef.current = ctx;
 
     // ------------------------------
@@ -98,6 +95,7 @@ export default function Canvas({ roomId, drawerId }) {
       socket.off("updateHistory", handleUpdateHistory);
       socket.off("bucketFill", handleBucketFill);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // ============================================================
